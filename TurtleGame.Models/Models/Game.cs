@@ -28,9 +28,15 @@ namespace TurtleGame.Models
             {
                 foreach (var sequence in _sequences)
                 {
-                    //for each move sequence we reset the currentTile and also the Turtle initial position
-                    Turtle = new Turtle(_gameSettings);
+                    //for each move sequence we need to:
+                    //1) reset the currentTile 
+                    //2) reset Turtle's initial position
+                    //3) reset won status
+                    //4) increate the sequence counter by 1
+
                     var currentTile = TileType.Safe;
+                    Turtle = new Turtle(_gameSettings);
+                    _won = false;
                     sequenceCounter++;
 
                     foreach (var action in sequence)
@@ -38,10 +44,10 @@ namespace TurtleGame.Models
 
                         switch (action)
                         {
-                            case ActionType.MoveForward:
+                            case ActionType.Move:
                                 Turtle.Move();
                                 break;
-                            case ActionType.RotateToTheRight:
+                            case ActionType.Rotate:
                                 Turtle.Rotate();
                                 break;
                             case ActionType.None:

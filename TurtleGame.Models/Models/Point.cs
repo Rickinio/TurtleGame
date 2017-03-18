@@ -1,6 +1,6 @@
 ﻿namespace TurtleGame.Models
 {
-    public struct Point
+    public class Point
     {
         public int X { get; }
         public int Y { get; }

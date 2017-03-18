@@ -29,38 +29,38 @@ namespace TurtleGame.Tests.ModelTests
         public void GameTurtleExitsTestMustSucceed() {
 
             var firstSequence = new List<ActionType> {
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
-                ActionType.RotateToTheRight,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward
+                ActionType.Move,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Rotate,
+                ActionType.Rotate,
+                ActionType.Rotate,
+                ActionType.Move
             };
 
             var secondSequence = new List<ActionType> {
-                ActionType.RotateToTheRight,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
-                ActionType.RotateToTheRight,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
-                ActionType.RotateToTheRight,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward
+                ActionType.Rotate,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Rotate,
+                ActionType.Rotate,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Rotate,
+                ActionType.Rotate,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move
             };
 
             var sequences = new List<List<ActionType>>() {
@@ -81,10 +81,10 @@ namespace TurtleGame.Tests.ModelTests
         public void GameTurtleHitsMineTestMustSucceed() {
 
             var actions = new List<ActionType> {
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
             };
 
             var sequences = new List<List<ActionType>>() {
@@ -104,15 +104,15 @@ namespace TurtleGame.Tests.ModelTests
         public void GameTurtleStillInDangerTestMustSucceed() {
 
             var actions = new List<ActionType> {
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward
+                ActionType.Move,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Rotate,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move
             };
 
             var sequences = new List<List<ActionType>>() {
@@ -132,10 +132,10 @@ namespace TurtleGame.Tests.ModelTests
         public void GameTurtlePrintExceptionTestMustSucceed() {
 
             var actions = new List<ActionType> {
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
+                ActionType.Move,
             };
 
             var sequences = new List<List<ActionType>>() {

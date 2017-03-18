@@ -24,7 +24,6 @@ namespace TurtleGame.Tests.ModelTests
             Assert.AreEqual(Heading.South, turtle.Heading);
         }
 
-
         [Test()]
         [TestCase(1, 1, Heading.North, 1, 0)]
         [TestCase(1, 1, Heading.East, 2, 1)]
@@ -35,7 +34,11 @@ namespace TurtleGame.Tests.ModelTests
             turtle.Heading = heading;
             turtle.Position = new Point(initialX, initialY);
             turtle.Move();
-            Assert.AreEqual(new Point(expectedX,expectedY), turtle.Position);
+            //Assert.AreEqual(new Point(expectedX, expectedY), turtle.Position);
+            var expectedPoint = new Point(expectedX, expectedY);
+            Assert.AreEqual(expectedPoint.X, turtle.Position.X);
+            Assert.AreEqual(expectedPoint.Y, turtle.Position.Y);
         }
+
     }
 }

@@ -71,8 +71,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\TurtleGame.Models\TurtleGame.Models.csproj">
-      <Project>{4E4F10D8-78F6-412A-88D1-FAC87F21159A}</Project>
+      <Project>{4e4f10d8-78f6-412a-88d1-fac87f21159a}</Project>
       <Name>TurtleGame.Models</Name>
     </ProjectReference>
   </ItemGroup>

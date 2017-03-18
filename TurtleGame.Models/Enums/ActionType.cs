@@ -3,7 +3,7 @@
     public enum ActionType
     {
         None = 0,
-        MoveForward = 1,
-        RotateToTheRight = 2
+        Move = 1,
+        Rotate = 2
     }
 }
