@@ -1,5 +1,6 @@
 ﻿using System;
 using TurtleGame.Enums;
+using TurtleGame.Interfaces;
 
 namespace TurtleGame.Models
 {
@@ -13,32 +14,28 @@ namespace TurtleGame.Models
 
         }
 
-        public Turtle(GameSettings gameSettings)
-        {
+        public Turtle(IGameSettings gameSettings) {
             Position = gameSettings.TurtleInitialPosition;
             Heading = gameSettings.TurtleInitialHeading;
         }
 
-        public void Rotate()
-        {
+        public void Rotate() {
             Heading = _headings[(int)Heading % _headings.Length];
         }
 
-        public void Move()
-        {
-            switch (Heading)
-            {
+        public void Move() {
+            switch (Heading) {
                 case Heading.North:
-                    Position = new Point(Position.X - 1, Position.Y);
+                    Position = new Point(Position.X, Position.Y - 1);
                     break;
                 case Heading.East:
-                    Position = new Point(Position.X, Position.Y + 1);
-                    break;
-                case Heading.South:
                     Position = new Point(Position.X + 1, Position.Y);
                     break;
+                case Heading.South:
+                    Position = new Point(Position.X, Position.Y + 1);
+                    break;
                 case Heading.West:
-                    Position = new Point(Position.X, Position.Y - 1);
+                    Position = new Point(Position.X - 1, Position.Y);
                     break;
                 case Heading.None:
                     break;

@@ -1,25 +1,26 @@
 ﻿using TurtleGame.Enums;
 using TurtleGame.Exceptions;
+using TurtleGame.Interfaces;
 
 namespace TurtleGame.Models
 {
     public class Board : IBoard
     {
-        public Tile[,] Grid { get; set; }
+        public ITile[,] Grid { get; set; }
 
         public Board() {
 
         }
 
-        public Board(GameSettings gameSettings) {
+        public Board(IGameSettings gameSettings) {
             Grid = new Tile[gameSettings.BoardXSize, gameSettings.BoardYSize];
 
             //Initilize Grid
             var xLength = Grid.GetLength(0);
             var ylength = Grid.GetLength(1);
 
-            for (int i = 1; i < xLength; i++) {
-                for (int j = 1; j < ylength; j++) {
+            for (int i = 0; i < xLength; i++) {
+                for (int j = 0; j < ylength; j++) {
                     Grid[i, j] = new Tile();
                 }
             }
@@ -36,6 +37,7 @@ namespace TurtleGame.Models
         public TileType GetTileTypeForPoint(Point turtlePosition) {
             if (turtlePosition.X >= 0 && turtlePosition.X < Grid.GetLength(0) &&
                 turtlePosition.Y >= 0 && turtlePosition.Y < Grid.GetLength(1)) {
+
                 var currentTile = Grid[turtlePosition.X, turtlePosition.Y].TileType;
                 return currentTile;
             }

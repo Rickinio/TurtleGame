@@ -1,4 +1,5 @@
 ﻿using TurtleGame.Enums;
+using TurtleGame.Interfaces;
 
 namespace TurtleGame.Models
 {

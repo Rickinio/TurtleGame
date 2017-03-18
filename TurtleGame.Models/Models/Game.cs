@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using TurtleGame.Enums;
+using TurtleGame.Interfaces;
 
 namespace TurtleGame.Models
 {
     public class Game : IGame
     {
         private readonly List<List<ActionType>> _sequences;
+        private readonly IGameSettings _gameSettings;
         private bool _won;
         public IBoard Board { get; set; }
         public ITurtle Turtle { get; set; }
 
-        public Game(GameSettings gameSettings, List<List<ActionType>> sequences)
+        public Game(IGameSettings gameSettings, List<List<ActionType>> sequences)
         {
+            _gameSettings = gameSettings;
             _sequences = sequences;
-            Board = new Board(gameSettings);
-            Turtle = new Turtle(gameSettings);
+            
+            Board = new Board(gameSettings);            
         }
 
         public void ExecuteMovements()
@@ -25,7 +28,8 @@ namespace TurtleGame.Models
             {
                 foreach (var sequence in _sequences)
                 {
-                    //for each move sequence we reset the currentTile
+                    //for each move sequence we reset the currentTile and also the Turtle initial position
+                    Turtle = new Turtle(_gameSettings);
                     var currentTile = TileType.Safe;
                     sequenceCounter++;
 

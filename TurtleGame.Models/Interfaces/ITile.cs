@@ -1,6 +1,6 @@
 ﻿using TurtleGame.Enums;
 
-namespace TurtleGame.Models
+namespace TurtleGame.Interfaces
 {
     public interface ITile
     {

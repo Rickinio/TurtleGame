@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using TurtleGame.Enums;
+using TurtleGame.Models;
 
-namespace TurtleGame.Models
+namespace TurtleGame.Interfaces
 {
     public interface IGameSettings
     {

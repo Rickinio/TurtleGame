@@ -4,7 +4,7 @@ using TurtleGame.Enums;
 
 namespace TurtleGame.Tests.ModelTests
 {
-    [TestFixture()]
+    [TestFixture(Author = "Konstantinos Stamatopoulos", Category = "Turtle", Description = "Test Turtle Functionality")]
     public class TurtleTests
     {
         [Test()]
@@ -26,10 +26,10 @@ namespace TurtleGame.Tests.ModelTests
 
 
         [Test()]
-        [TestCase(1, 1, Heading.North, 0, 1)]
-        [TestCase(1, 1, Heading.East, 1, 2)]
-        [TestCase(1, 1, Heading.South, 2, 1)]
-        [TestCase(1, 1, Heading.West, 1, 0)]
+        [TestCase(1, 1, Heading.North, 1, 0)]
+        [TestCase(1, 1, Heading.East, 2, 1)]
+        [TestCase(1, 1, Heading.South, 1, 2)]
+        [TestCase(1, 1, Heading.West, 0, 1)]
         public void TurtleMoveNorthTestMustSucceed(int initialX, int initialY, Heading heading, int expectedX, int expectedY) {
             var turtle = new Turtle();
             turtle.Heading = heading;
