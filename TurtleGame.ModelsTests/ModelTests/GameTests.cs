@@ -44,17 +44,22 @@ namespace TurtleGame.Tests.ModelTests
             };
 
             var secondSequence = new List<ActionType> {
-                ActionType.MoveForward,
+                ActionType.RotateToTheRight,
                 ActionType.RotateToTheRight,
                 ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.MoveForward,
-                ActionType.RotateToTheRight,
                 ActionType.MoveForward,
                 ActionType.MoveForward,
                 ActionType.RotateToTheRight,
                 ActionType.RotateToTheRight,
                 ActionType.RotateToTheRight,
+                ActionType.MoveForward,
+                ActionType.MoveForward,
+                ActionType.MoveForward,
+                ActionType.MoveForward,
+                ActionType.RotateToTheRight,
+                ActionType.RotateToTheRight,
+                ActionType.RotateToTheRight,
+                ActionType.MoveForward,
                 ActionType.MoveForward
             };
 
