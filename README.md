@@ -5,7 +5,8 @@ The solution is composed by 3 projects:
 
     1. The console application
     2. A class library that all domain models live.
-       They are in a seperate project cause now we can create a nuget package out of them.
+       They are in a seperate project cause now we can create a nuget package out of them
+       and reuse them in other projects.
     3. A Test project where we achieved almost 100% code coverage.
 
 
@@ -102,4 +103,16 @@ moves file example:
       "move"      
    ]
 ]
+```
+The result for the above game-settings and moves are:
+    
+    1. Success
+    2. Success
+    3. Mine Hit
+    4. Still in danger
+    5. Illigal move
+
+To run the program type in your terminal from inside the folder of the app:
+```
+> TurtleGame game-settings moves
 ```
