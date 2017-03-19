@@ -18,32 +18,48 @@ namespace TurtleGame.Helpers
                 if (args.Length < 2) {
                     Console.WriteLine(@"Number of arguments is wrong, please enter ""game-settings"" ""and moves"" file");
                 }
+                else {
+                    var gameSettingsFile = Directory.GetFiles(Directory.GetCurrentDirectory(), $"{args[0]}.*", SearchOption.TopDirectoryOnly);
+                    var movesFile = Directory.GetFiles(Directory.GetCurrentDirectory(), $"{args[1]}.*", SearchOption.TopDirectoryOnly);
 
-                var gameSettingsFile = Directory.GetFiles(Directory.GetCurrentDirectory(), $"{args[0]}.*", SearchOption.TopDirectoryOnly);
-                var movesFile = Directory.GetFiles(Directory.GetCurrentDirectory(), $"{args[1]}.*", SearchOption.TopDirectoryOnly);
+                    #region check arguments validity
 
-                #region check arguments validity
+                    if (gameSettingsFile.Length == 0) {
+                        Console.WriteLine(@"""game-settings"" file not found");
+                    }
+                    if (movesFile.Length == 0) {
+                        Console.WriteLine(@"""moves"" file not found");
+                    }
+                    if (gameSettingsFile.Length > 1) {
+                        Console.WriteLine(@"More than one ""game-settings"" file found");
+                    }
+                    if (movesFile.Length > 1) {
+                        Console.WriteLine(@"More than one ""moves"" file found");
+                    }
 
-                if (gameSettingsFile.Length == 0) {
-                    Console.WriteLine(@"""game-settings"" file not found");
-                }
-                if (movesFile.Length == 0) {
-                    Console.WriteLine(@"""moves"" file not found");
-                }
-                if (gameSettingsFile.Length > 1) {
-                    Console.WriteLine(@"More than one ""game-settings"" file found");
-                }
-                if (movesFile.Length > 1) {
-                    Console.WriteLine(@"More than one ""moves"" file found");
-                }
+                    #endregion
 
-                #endregion
+                    if (gameSettingsFile.Length == 1 && movesFile.Length == 1) {
 
-                if (gameSettingsFile.Length == 1 && movesFile.Length == 1) {
-                    var gameSettings = JsonConvert.DeserializeObject<GameSettings>(File.ReadAllText(gameSettingsFile[0]));
-                    var moves = JsonConvert.DeserializeObject<List<List<ActionType>>>(File.ReadAllText(movesFile[0]));
+                        IGameSettings gameSettings;
+                        List<List<ActionType>> moves;
 
-                    argsTuple = new Tuple<IGameSettings, List<List<ActionType>>>(gameSettings, moves);
+                        try {
+                            gameSettings = JsonConvert.DeserializeObject<GameSettings>(File.ReadAllText(gameSettingsFile[0]));
+                        }
+                        catch (Exception ex) {
+                            throw new Exception($"Unable to parse game-settings file: Exception: {ex.Message}",ex.InnerException);
+                        }
+
+                        try {
+                            moves = JsonConvert.DeserializeObject<List<List<ActionType>>>(File.ReadAllText(movesFile[0]));
+                        }
+                        catch (Exception ex) {
+                            throw new Exception($"Unable to parse moves file: Exception: {ex.Message}", ex.InnerException);
+                        }
+
+                        argsTuple = new Tuple<IGameSettings, List<List<ActionType>>>(gameSettings, moves);
+                    }
                 }
 
                 return argsTuple;
